@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PAPANGAT</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0f;
+      color: white;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0 5px;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    /* GRID FOTO */
+    .gallery {
+      max-width: 1000px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.25s;
+    }
+
+    .photo:hover {
+      transform: scale(1.04);
+      opacity: 0.85;
+    }
+
+    /* TAMPILAN FOTO BESAR */
+    .viewer {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .viewer img {
+      max-width: 95%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 25px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    /* HP */
+    @media (max-width: 600px) {
+      .gallery {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 7px;
+      }
+
+      body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>📸 Galeri Foto</h1>
+  <p class="subtitle">Klik foto untuk melihat lebih besar</p>
+
+  <div class="gallery">
+
+    <img src="foto1.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto2.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto3.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto4.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto5.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto6.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto7.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto8.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto9.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto10.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto11.jpg" class="photo" onclick="openPhoto(this.src)">
+    <img src="foto12.jpg" class="photo" onclick="openPhoto(this.src)">
+
+  </div>
+
+  <!-- FOTO BESAR -->
+  <div class="viewer" id="viewer" onclick="closePhoto()">
+
+    <span class="close">&times;</span>
+
+    <img id="bigPhoto" src="">
+
+  </div>
+
+  <script>
+    function openPhoto(src) {
+      document.getElementById("bigPhoto").src = src;
+      document.getElementById("viewer").style.display = "flex";
+    }
+
+    function closePhoto() {
+      document.getElementById("viewer").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>

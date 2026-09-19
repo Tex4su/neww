@@ -17,24 +17,31 @@
       font-family: Arial, sans-serif;
       background: #0b0b0f;
       color: white;
-      padding: 20px;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 30px 15px 25px;
     }
 
     h1 {
-      text-align: center;
-      margin: 10px 0 5px;
+      margin-bottom: 7px;
+      font-size: 30px;
     }
 
     .subtitle {
-      text-align: center;
       color: #888;
-      margin-bottom: 25px;
+      font-size: 14px;
     }
 
-    /* GRID FOTO */
+    /* GALERI */
     .gallery {
       max-width: 1000px;
       margin: auto;
+      padding: 0 15px 40px;
+
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 12px;
@@ -54,13 +61,14 @@
       opacity: 0.85;
     }
 
-    /* TAMPILAN FOTO BESAR */
+    /* VIEWER FOTO BESAR */
     .viewer {
       display: none;
       position: fixed;
       z-index: 999;
       inset: 0;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0, 0, 0, 0.94);
+
       justify-content: center;
       align-items: center;
       padding: 20px;
@@ -79,6 +87,33 @@
       right: 25px;
       font-size: 40px;
       cursor: pointer;
+      color: white;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #222;
+      background: #08080b;
+      text-align: center;
+      padding: 25px 15px;
+      margin-top: 10px;
+    }
+
+    .footer-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .footer-text {
+      color: #777;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .copyright {
+      color: #444;
+      font-size: 11px;
     }
 
     /* HP */
@@ -86,10 +121,11 @@
       .gallery {
         grid-template-columns: repeat(3, 1fr);
         gap: 7px;
+        padding: 0 10px 30px;
       }
 
-      body {
-        padding: 10px;
+      h1 {
+        font-size: 25px;
       }
     }
   </style>
@@ -97,9 +133,16 @@
 
 <body>
 
-  <h1>📸 Galeri Foto</h1>
-  <p class="subtitle">Klik foto untuk melihat lebih besar</p>
+  <!-- HEADER -->
+  <header>
+    <h1>📸 JHOKO</h1>
+    <p class="subtitle">
+      Klik foto untuk melihat lebih besar
+    </p>
+  </header>
 
+
+  <!-- GALERI -->
   <div class="gallery">
 
     <img src="foto1.jpg" class="photo" onclick="openPhoto(this.src)">
@@ -117,6 +160,7 @@
 
   </div>
 
+
   <!-- FOTO BESAR -->
   <div class="viewer" id="viewer" onclick="closePhoto()">
 
@@ -125,6 +169,25 @@
     <img id="bigPhoto" src="">
 
   </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-title">
+      📸 AIB XI TKJ5
+    </div>
+
+    <div class="footer-text">
+      Koleksi foto 
+    </div>
+
+    <div class="copyright">
+      © 2026 Matexx • All Rights Reserved
+    </div>
+
+  </footer>
+
 
   <script>
     function openPhoto(src) {
